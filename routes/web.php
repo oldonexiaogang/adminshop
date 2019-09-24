@@ -16,3 +16,7 @@ Auth::routes(['verify' => true]);
 
 
 Route::redirect('/home', '/')->name('home');
+
+Route::group(['middleware' => ['auth', 'verified']], function() {
+    Route::get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
+});
