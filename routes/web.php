@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'PagesController@root')->name('root');
+Auth::routes(['verify' => true]);
 
-Auth::routes();
 
 Route::redirect('/home', '/')->name('home');
