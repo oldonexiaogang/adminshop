@@ -153,7 +153,7 @@ return [
     'upload' => [
 
         // Disk in `config/filesystem.php`.
-        'disk' => 'local',
+        'disk' => 'public',
 
         // Image and file upload path under the disk above.
         'directory' => [
@@ -402,8 +402,9 @@ return [
 
             // 编辑器的配置
             'config' => [
-
+                //'uploadImgServer' => '/upload'
             ]
         ]
     ],
 ];
+
