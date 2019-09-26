@@ -7,3 +7,8 @@
         <p class="float-right"><a href="mailto:name@email.com">联系我们</a></p>
     </div>
 </footer>
+<!-- JS 脚本 -->
+<script src="{{ mix('js/app.js') }}"></script>
+@yield('scriptsAfterJs')
+</body>
+</html>
