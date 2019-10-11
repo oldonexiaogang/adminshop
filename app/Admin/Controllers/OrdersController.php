@@ -7,6 +7,8 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Encore\Admin\Layout\Content;
+use App\Admin\Actions\Post\OrderDetail;
 
 class OrdersController extends AdminController
 {
@@ -15,7 +17,7 @@ class OrdersController extends AdminController
      *
      * @var string
      */
-    protected $title = 'App\Models\Order';
+    protected $title = '网络订单';
 
     /**
      * Make a grid builder.
@@ -45,6 +47,7 @@ class OrdersController extends AdminController
             // 禁用删除和编辑按钮
             $actions->disableDelete();
             $actions->disableEdit();
+            //$actions->add(new OrderDetail);
         });
         $grid->tools(function ($tools) {
             // 禁用批量删除按钮
@@ -62,31 +65,19 @@ class OrdersController extends AdminController
      * @param mixed $id
      * @return Show
      */
+
+
+
+
     protected function detail($id)
     {
-        $show = new Show(Order::findOrFail($id));
-
-        $show->field('id', __('Id'));
-        $show->field('no', __('No'));
-        $show->field('user_id', __('User id'));
-        $show->field('address', __('Address'));
-        $show->field('total_amount', __('Total amount'));
-        $show->field('remark', __('Remark'));
-        $show->field('paid_at', __('Paid at'));
-        $show->field('payment_method', __('Payment method'));
-        $show->field('payment_no', __('Payment no'));
-        $show->field('refund_status', __('Refund status'));
-        $show->field('refund_no', __('Refund no'));
-        $show->field('closed', __('Closed'));
-        $show->field('reviewed', __('Reviewed'));
-        $show->field('ship_status', __('Ship status'));
-        $show->field('ship_data', __('Ship data'));
-        $show->field('extra', __('Extra'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-
-        return $show;
+        //$content = new Content;
+        $order = Order::query()->where('id',$id)->first();
+        return view('admin.orders.show', ['order' => $order]);
     }
+
+
+
 
     /**
      * Make a form builder.
