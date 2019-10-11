@@ -15,5 +15,6 @@ Route::group([
     $router->resource('products', ProductsController::class);
     $router->resource('orders', OrdersController::class);
     $router->get('orders','OrdersController@index')->name('admin.orders.index');
+    $router->post('orders/{order}/ship', 'OrdersController@ship')->name('admin.orders.ship');
 
 });

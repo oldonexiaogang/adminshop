@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class OrderDetail extends RowAction
 {
-    public $name = '订单详情';
+    public $name = '订单发货';
 
    /* public function handle(Model $model)
     {
